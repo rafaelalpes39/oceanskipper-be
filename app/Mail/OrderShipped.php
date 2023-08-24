@@ -31,7 +31,7 @@ class OrderShipped extends Mailable
             ->with(['data' => $this->data]); */
         return $this->subject('New Contact Form Submission')
             ->from($this->data['email'], $this->data['name'])
-            ->markdown('emails.orders.shipped')
+            ->markdown('emails.orders.email')
             ->with(['data' => $this->data]);
     }
 
@@ -41,7 +41,7 @@ class OrderShipped extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Order Shipped',
+            subject: 'New Contact Form Submission',
         );
     }
 
@@ -51,7 +51,7 @@ class OrderShipped extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'emails.orders.shipped',
+            markdown: 'emails.orders.email',
         );
     }
 
